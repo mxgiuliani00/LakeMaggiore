@@ -1,0 +1,31 @@
+# Lake Maggiore Problem: simulation from 1/1/2000 to 31/12/2015
+
+# Problem setting
+<NUM_SIM>           1           # number of simulations to run
+<DIM_ENSEMBLE>      1           # dimension of the whole ensemble
+<PERIOD>            365         # period
+<INTEGRATION>       24          # number of sub-daily steps
+<SIM_HORIZON>       5840         # simulation horizon
+<NUM_VAR>           29          # number of decision variables
+<NUM_OBJ>           2           # number of objectives
+<WARMUP>            0           # number of days of warmup, not considered in obj evaluations
+<DOY>               1           # day-of-year: 0 = doy loaded from file, otherwise it sets the first day of simulation (no leap years)
+
+# model of the catchment
+<CATCHMENT>   1                  # type of catchment model: 1 = load inflows from file, 2 = HBV
+    ../data/afflussi_Verb_00_15.txt
+
+# initial conditions
+<INIT_CONDITION>    0.9600
+<INIT_INFLOW>       8.0267177e+01
+<INIT_QMIO>			    1.8000000e+02
+
+# operating policy
+<POLICY_CLASS>      4               # class of policy: 1 = RBF, 2 = ANN, 3 = PWL, 4 = non-convex RBF
+<NUM_INPUT>         3               # number of policy input and corresponding ranges
+    -1      1
+    -1      1
+    -0.5    5.0
+<NUM_OUTPUT>        1               # number of policy output and corresponding ranges
+    0.0     491.61
+<POLICY_STRUCTURE>  4               # policy architecture (e.g., number of RBF,ANN,�)
